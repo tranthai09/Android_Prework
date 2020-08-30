@@ -1,5 +1,6 @@
 package com.example.simpletodo;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -15,11 +16,17 @@ import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.List;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class MainActivity extends AppCompatActivity {
+
+    public static final String KEY_ITEM_TEXT = "item_text";
+    public static final String KEY_ITEM_POSITION = "item_position";
+    public static final int EDIT_TEXT_CODE = 20;
+
 
     List<String> items;
 
@@ -39,6 +46,21 @@ public class MainActivity extends AppCompatActivity {
 
         loadItems();
 
+        ItemsAdapter.OnClickListener onClickListener = new ItemsAdapter.OnClickListener(){
+            @Override
+            public void onItemClicked(int position) {
+                // Create the new activity
+                Intent i = new Intent(MainActivity.this, EditActivity.class);
+
+                // Pass data being edited
+                i.putExtra(KEY_ITEM_TEXT, items.get(position));
+                i.putExtra(KEY_ITEM_POSITION, position);
+
+                // Display the activity
+                startActivityForResult(i, EDIT_TEXT_CODE);
+            }
+        };
+
         ItemsAdapter.OnLongClickListener onLongClickListener = new ItemsAdapter.OnLongClickListener(){
             @Override
             public void onItemLongClicked(int position) {
@@ -53,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
         };
 
 
-        itemsAdapter = new ItemsAdapter(items, onLongClickListener);
+        itemsAdapter = new ItemsAdapter(items, onLongClickListener, onClickListener);
         rvItems.setAdapter(itemsAdapter);
         rvItems.setLayoutManager(new LinearLayoutManager(this));
 
@@ -90,6 +112,32 @@ public class MainActivity extends AppCompatActivity {
         } catch (IOException e) {
             Log.e("Main Activity", "Error reading items", e);
             items = new ArrayList<>();
+        }
+    }
+
+    // Handle the result of the edit activity
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == RESULT_OK && requestCode == EDIT_TEXT_CODE){
+            // Retrieve the updated text value
+            String itemText = data.getStringExtra(KEY_ITEM_TEXT);
+
+            // Extract the original position of the edited item form the position key
+            int position = data.getExtras().getInt(KEY_ITEM_POSITION);
+
+            // Update the model at the right poisiton with the new item text
+            items.set(position, itemText);
+
+            // Notify the adapter
+            itemsAdapter.notifyItemChanged(position);
+
+            // Persist the changes
+            saveItems();
+            Toast.makeText(getApplicationContext(), "Item updated successfully", Toast.LENGTH_SHORT).show();
+        }
+        else {
+            Log.w("MainActiivity", "Unknown call to onActivityResult");
         }
     }
 

@@ -22,7 +22,7 @@ The following **optional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-<img src='Prework.gif' title='Video Walkthrough Prework' width='' alt='Video Walkthrough' />
+<img src='https://github.com/tranthai09/Android_Prework/blob/master/SimpleToDo/Prework.gif' title='Video Walkthrough Prework' width='' alt='Video Walkthrough' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 

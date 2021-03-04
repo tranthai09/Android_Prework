@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    >
+
+    <RadioGroup
+        android:id="@+id/radioGroup_patty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toEndOf="@+id/tv_patty"
+        app:layout_constraintHorizontal_bias="0.483"
+        app:layout_constraintStart_toStartOf="@+id/tv_patty"
+        app:layout_constraintTop_toBottomOf="@+id/tv_patty">
+
+        <RadioButton
+            android:id="@+id/beef_patty"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/beef"
+            android:onClick="beefPattyAction"/>
+
+        <RadioButton
+            android:id="@+id/chicken_patty"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/grilled_chicken"
+            android:onClick="chickenPattyAction"/>
+
+        <RadioButton
+            android:id="@+id/turkey_patty"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/turkey"
+            android:onClick="turkeyPattyAction"/>
+
+        <RadioButton
+            android:id="@+id/salmon_patty"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/salmon"
+            android:onClick="salmonPattyAction"/>
+
+        <RadioButton
+            android:id="@+id/veggie_patty"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/veggie"
+            android:onClick="veggiePattyAction"/>
+    </RadioGroup>
+
+
+    <TextView
+        android:id="@+id/tv_patty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="@string/step_2_choose_your_patty"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.236"
+        app:layout_constraintStart_toEndOf="@+id/tv_step_1"
+        app:layout_constraintTop_toBottomOf="@+id/app_title"
+        android:textColor="@color/black"
+        android:background="@color/orange"/>
+
+    <TextView
+        android:id="@+id/app_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/burger_calculator"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:textColor="@color/black"
+        android:background="@color/lightPink"/>
+
+    <ImageView
+        android:id="@+id/iv_burger"
+        android:layout_width="72dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toStartOf="@+id/app_title"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_burger"
+        android:contentDescription="@string/app_symbol" />
+
+    <ImageView
+        android:id="@+id/iv_burger2"
+        android:layout_width="77dp"
+        android:layout_height="57dp"
+        android:layout_marginTop="16dp"
+        android:contentDescription="@string/burger_image"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/app_title"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@mipmap/ic_calculator_foreground" />
+
+    <EditText
+        android:id="@+id/et_burgerCount"
+        android:layout_width="267dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="20dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="@string/enter_the_number_of_burgers"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/checkBox_mayo"
+        android:background="@color/lightPink"/>
+
+    <CheckBox
+        android:id="@+id/checkBox_mushroom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/saut_ed_mushroom"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_toppings"
+        android:onClick="cbMushroomAction"/>
+
+    <Button
+        android:id="@+id/btn_calculate"
+        android:layout_width="166dp"
+        android:layout_height="59dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/colorAccent"
+        android:text="@string/calculate"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.22"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_burgerCount"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup_bun"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toEndOf="@+id/tv_step_1"
+        app:layout_constraintStart_toStartOf="@+id/tv_step_1"
+        app:layout_constraintTop_toBottomOf="@+id/tv_step_1">
+
+        <RadioButton
+            android:id="@+id/white_bun"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/white"
+            android:onClick="whiteBunAction"/>
+
+        <RadioButton
+            android:id="@+id/wheat_bun"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/wheat"
+            android:onClick="wheatBunAction"/>
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/tv_step_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="24dp"
+        android:text="@string/step_1_text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/app_title"
+        android:textColor="@color/black"
+        android:background="@color/orange"/>
+
+    <TextView
+        android:id="@+id/tv_toppings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/step_3_choose_toppings_0_3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup_patty"
+        android:textColor="@color/black"
+        android:background="@color/orange"/>
+
+    <CheckBox
+        android:id="@+id/checkBox_lettuce"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/lettuce"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/checkBox_mushroom"
+        app:layout_constraintTop_toBottomOf="@+id/tv_toppings"
+        android:onClick="cbLettuceAction"/>
+
+    <CheckBox
+        android:id="@+id/checkBox_tomato"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="0dp"
+        android:text="@string/tomato"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/checkBox_mushroom"
+        android:onClick="cbTomatoAction"/>
+
+    <CheckBox
+        android:id="@+id/checkBox_mayo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:text="@string/mayo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/checkBox_tomato"
+        android:onClick="cbMayoAction"/>
+
+    <CheckBox
+        android:id="@+id/checkBox_pickles"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/pickles"
+        app:layout_constraintEnd_toEndOf="@+id/tv_toppings"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/checkBox_lettuce"
+        app:layout_constraintTop_toBottomOf="@+id/checkBox_lettuce"
+        android:onClick="cbPicklesAction"/>
+
+    <CheckBox
+        android:id="@+id/checkBox_mustard"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/mustard"
+        app:layout_constraintEnd_toEndOf="@+id/tv_toppings"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/checkBox_pickles"
+        app:layout_constraintTop_toBottomOf="@+id/checkBox_pickles"
+        android:onClick="cbMustardAction"/>
+
+    <TextView
+        android:id="@+id/calories_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/red"
+        android:text="@string/calories_label"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toEndOf="@+id/btn_calculate"
+        app:layout_constraintTop_toBottomOf="@+id/et_burgerCount" />
+
+    <TextView
+        android:id="@+id/calories_res"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@color/red"
+        android:text="@string/calories"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.583"
+        app:layout_constraintStart_toEndOf="@+id/calories_label"
+        app:layout_constraintTop_toBottomOf="@+id/et_burgerCount" />
+
+    <TextView
+        android:id="@+id/cost_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:background="@color/yellow"
+        android:text="@string/total_cost_label"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/calories_label"
+        app:layout_constraintTop_toBottomOf="@+id/calories_label"
+        app:layout_constraintVertical_bias="0.049" />
+
+    <TextView
+        android:id="@+id/cost_res"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:background="@color/yellow"
+        android:text="@string/cost"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/calories_res"
+        app:layout_constraintTop_toBottomOf="@+id/calories_res"
+        app:layout_constraintVertical_bias="0.049" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

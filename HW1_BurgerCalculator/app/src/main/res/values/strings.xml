@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">HW1_Burger Calculator</string>
+    <string name="burger_calculator">Burger Calculator</string>
+    <string name="step_1_text">Step 1: Choose your bun</string>
+    <string name="beef">Beef</string>
+    <string name="grilled_chicken">Grilled Chicken</string>
+    <string name="turkey">Turkey</string>
+    <string name="salmon">Salmon</string>
+    <string name="veggie">Veggie</string>
+    <string name="step_2_choose_your_patty">Step 2: Choose your patty</string>
+    <string name="enter_the_number_of_burgers">Enter the number of burgers...</string>
+    <string name="saut_ed_mushroom">Sautéed mushroom</string>
+    <string name="calculate">Calculate</string>
+    <string name="white">White</string>
+    <string name="wheat">Wheat</string>
+    <string name="step_3_choose_toppings_0_3">Step 3: Choose toppings (0 - 3)</string>
+    <string name="lettuce">Lettuce</string>
+    <string name="tomato">Tomato</string>
+    <string name="mustard">Mustard</string>
+    <string name="pickles">Pickles</string>
+    <string name="mayo">Mayo</string>
+    <string name="app_symbol">App Symbol</string>
+    <string name="burger_image">Burger Image</string>
+    <string name="calories">Calories</string>
+    <string name="calories_label">Calories:</string>
+    <string name="total_cost_label">Total Cost:</string>
+    <string name="cost">Cost</string>
+</resources>
